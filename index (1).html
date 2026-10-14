@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senir Green Farm | Akıllı ve Hassas Tarım Teknolojileri</title>
+    <style>
+        :root {
+            --neon-green: #39FF14;
+            --dark-farm-green: #143D23;
+            --light-green: #E8F5E9;
+            --sun-yellow: #FFD700;
+            --sky-blue: #00BFFF;
+            --text-dark: #2F3E46;
+            --text-light: #FFFFFF;
+            --border-color: #A3E4D7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-green);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-farm-green);
+            border-bottom: 4px solid var(--neon-green);
+            color: var(--text-light);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-green);
+            background: linear-gradient(135deg, var(--sky-blue) 40%, var(--sun-yellow) 40% 50%, var(--dark-farm-green) 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--neon-green);
+            font-size: 12px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .logo-text span {
+            color: var(--neon-green);
+            font-size: 12px;
+            display: block;
+            margin-top: -4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-green);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(20, 61, 35, 0.85), rgba(20, 61, 35, 0.95)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 5px solid var(--sky-blue);
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .hero h2 span {
+            color: var(--neon-green);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #ECEFF1;
+        }
+
+        .badge-2026 {
+            display: inline-block;
+            background-color: var(--sun-yellow);
+            color: var(--dark-farm-green);
+            padding: 5px 15px;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 5px;
+            position: relative;
+            color: var(--dark-farm-green);
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7F8C8D;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        .section-decor {
+            width: 80px;
+            height: 4px;
+            background-color: var(--neon-green);
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--dark-farm-green);
+            margin-bottom: 15px;
+        }
+
+        .about-tag {
+            display: inline-block;
+            background: var(--dark-farm-green);
+            color: var(--neon-green);
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--dark-farm-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--neon-green);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-farm-green);
+        }
+
+        /* Products and Harvest Report Section */
+        .products-bg {
+            background-color: #F0F4F1;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-card {
+            background: var(--text-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #E0E0E0;
+        }
+
+        .product-img-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, #A3E4D7, #E8F8F5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-farm-green);
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--dark-farm-green);
+            color: var(--neon-green);
+            padding: 3px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h4 {
+            font-size: 20px;
+            color: var(--dark-farm-green);
+            margin-bottom: 10px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #7F8C8D;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1fr dotted #E0E0E0;
+        }
+
+        .report-table-wrapper {
+            background: var(--text-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .report-table-wrapper h4 {
+            font-size: 22px;
+            color: var(--dark-farm-green);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        th {
+            background-color: var(--dark-farm-green);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #F9F9F9;
+        }
+
+        .status-badge {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .status-completed { background-color: #D4EDDA; color: #155724; }
+        .status-progress { background-color: #FFF3CD; color: #856404; }
+
+        /* Contact and Application Form Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+        }
+
+        .contact-info-panel {
+            background-color: var(--dark-farm-green);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 6px solid var(--neon-green);
+        }
+
+        .contact-info-panel h4 {
+            font-size: 22px;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+        }
+
+        .contact-method {
+            margin-bottom: 25px;
+        }
+
+        .contact-method h5 {
+            font-size: 16px;
+            color: var(--sun-yellow);
+            margin-bottom: 5px;
+        }
+
+        .contact-form-panel {
+            background: var(--text-light);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #E0E0E0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-farm-green);
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--dark-farm-green);
+            box-shadow: 0 0 5px rgba(20, 61, 35, 0.2);
+        }
+
+        .btn-submit {
+            background-color: var(--dark-farm-green);
+            color: var(--text-light);
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-transform: uppercase;
+            width: 100%;
+            border-bottom: 3px solid var(--neon-green);
+        }
+
+        .btn-submit:hover {
+            background-color: #1b522f;
+            color: var(--neon-green);
+        }
+
+        footer {
+            background-color: var(--dark-farm-green);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 4px solid var(--neon-green);
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer span {
+            color: var(--neon-green);
+        }
+
+        @media (max-width: 992px) {
+            .about-grid, .features-grid, .products-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo-area">
+                <div class="logo-circle">2026</div>
+                <div class="logo-text">
+                    <h1>Senir Green Farm</h1>
+                    <span>Precision & Tech Agriculture</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#anasayfa">Ana Sayfa</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#teknoloji">Teknolojimiz</a></li>
+                    <li><a href="#urunler">Ürünler & Hasat</a></li>
+                    <li><a href="#iletisim">İletişim & Başvuru</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="anasayfa" class="hero">
+        <div class="container">
+            <div class="badge-2026">Kuruluş: 2026</div>
+            <h2>Tarımın Geleceği <span>Bilimle Evriliyor</span></h2>
+            <p>Biyokimya uzmanlığı ve otomasyon teknolojilerinin kesişiminde, polikarbon seralarımızda minimum kaynakla maksimum verim üretiyoruz. Yarının gıda güvenliğini bugünden inşa ediyoruz.</p>
+        </div>
+    </div>
+
+    <div id="hakkimizda" class="section">
+        <div class="container">
+            <h2 class="section-title">Kurucu Hikayesi</h2>
+            <p class="section-subtitle">Bilim ve Kadın Girişimciliğinin Gücü</p>
+            <div class="section-decor"></div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="about-tag">Biyokimya Uzmanı & Girişimci</span>
+                    <h3>Olga Ergül</h3>
+                    <p>Senir Green Farm, Biyokimya Uzmanı <strong>Olga Ergül</strong> liderliğinde kurulmuş vizyoner bir <strong>kadın girişimcilik</strong> projesidir. Tarımsal üretime geleneksel yöntemlerin ötesinde bir bilim insanı hassasiyetiyle yaklaşan Ergül, bitki fizolojisi ve hücresel besin yönetimi konularındaki uzmanlığını yüksek teknolojiyle harmanlamıştır.</p>
+                    <p style="margin-top: 15px;">Amacımız; toprağın, suyun ve bitkinin biyokimyasal dilini çözerek, iklim krizine karşı dirençli, izole ve tamamen optimize edilmiş sürdürülebilir tarım ekosistemleri kurmaktır.</p>
+                </div>
+                <div style="background: linear-gradient(135deg, var(--dark-farm-green), #2c3e50); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--neon-green); font-weight: bold; border: 2px solid var(--neon-green);">
+                    [ Biyokimyasal Tarım Vizyonu ]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="teknoloji" class="section" style="background-color: #FFFFFF;">
+        <div class="container">
+            <h2 class="section-title">Teknolojik Altyapımız</h2>
+            <p class="section-subtitle">Hassas Tarım ve Akıllı Sistemler</p>
+            <div class="section-decor"></div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Polikarbon Sera Mimarisi</h3>
+                    <p>Geleneksel örtülerin yerine yüksek ısı yalıtımı ve PAR ışık geçirgenliği sunan dayanıklı polikarbon yapılar kullanıyoruz. Dış iklim risklerinden tamamen izole bir mikroklima sunar.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Yapay Destek & Reçeteler</h3>
+                    <p>Biyokimya laboratuvarımızda hazırlanan özel bitki besin reçeteleri, hücresel düzeyde maksimum emilim ve hızlı, sağlıklı büyüme döngüleri sağlar.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Tam Otomasyon Simgeleşmesi</h3>
+                    <p>Akıllı sensörler, otomatik dikey tarım modülleri ve yapay ışık optimizasyonları ile seramız kendi kendini denetler. Minimum su, sıfır israf.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTS AND HARVEST REPORT SECTION -->
+    <div id="urunler" class="section products-bg">
+        <div class="container">
+            <h2 class="section-title">Ürünlerimiz & Hasat Raporu</h2>
+            <p class="section-subtitle">Laboratuvar Hassasiyetiyle Yetişen Yüksek Verimli Mahsuller</p>
+            <div class="section-decor"></div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        🍃 Tıbbi & Aromatik Yeşillikler
+                        <span class="product-tag">Biyo-Optimized</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Fonksiyonel Fesleğen & Nane</h4>
+                        <p>Polikarbon akıllı seramızda, kontrollü besin eriyikleriyle yetiştirilen, uçucu yağ oranı maksimize edilmiş aromatik bitkiler.</p>
+                        <div class="product-meta">
+                            <span><strong>Teknoloji:</strong> NFT Hidroponik</span>
+                            <span style="color: var(--dark-farm-green);"><strong>%100 Doğal</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        🍅 Premium Salkım Domates
+                        <span class="product-tag">Yüksek Likopen</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Akıllı Sera Domatesi</h4>
+                        <p>Biyokimyasal veri takibiyle, tam kıvamında güneş sarısı ve gökyüzü mavisi spektrumlu yapay ışık desteğiyle olgunlaştırılmış premium ürünler.</p>
+                        <div class="product-meta">
+                            <span><strong>Teknoloji:</strong> Kokopit Otomasyon</span>
+                            <span style="color: var(--dark-farm-green);"><strong>Yüksek Verim</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-placeholder">
+                        🍓 Fonksiyonel Çilek
+                        <span class="product-tag">4 Mevsim Hasat</span>
+                    </div>
+                    <div class="product-info">
+                        <h4>Dikey Tarım Çileği</h4>
+                        <p>Yapay zeka kontrollü dikey modüllerde, mevsimlerden bağımsız olarak minimum su tüketimi ve maksimum şeker dengesiyle üretilen çilekler.</p>
+                        <div class="product-meta">
+                            <span><strong>Teknoloji:</strong> Dikey Aeroponik</span>
+                            <span style="color: var(--dark-farm-green);"><strong>Sıfır Pestisit</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-table-wrapper">
+                <h4>📊 Dönemsel Aktif Hasat Raporu (2026)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ürün Adı</th>
+                            <th>Üretim Alanı / Metot</th>
+                            <th>Yıllık Tahmini Verim</th>
+                            <th>Enerji/Su Tasarrufu</th>
+                            <th>Hasat Durumu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tıbbi Fesleğen</strong></td>
+                            <td>Polikarbon Sera - NFT Dikey</td>
+                            <td>12.5 Ton</td>
+                            <td>%92 Su Tasarrufu</td>
+                            <td><span class="status-badge status-completed">Sürekli Hasat</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Akıllı Sera Domatesi</strong></td>
+                            <td>Otomasyonlu Topraksız Sistem</td>
+                            <td>45.0 Ton</td>
+                            <td>%85 Su Tasarrufu</td>
+                            <td><span class="status-badge status-progress">Olgunlaşma Dönemi</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fonksiyonel Çilek</strong></td>
+                            <td>Yapay Işık Destekli Dikey Modül</td>
+                            <td>18.0 Ton</td>
+                            <td>%95 Su Tasarrufu</td>
+                            <td><span class="status-badge status-completed">Sürekli Hasat</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT AND APPLICATION FORM SECTION -->
+    <div id="iletisim" class="section" style="background-color: #FFFFFF;">
+        <div class="container">
+            <h2 class="section-title">İletişim & Yatırımcı Başvuru Formu</h2>
+            <p class="section-subtitle">Geleceğin Akıllı Tarım Ekosistemine Dahil Olun</p>
+            <div class="section-decor"></div>
+
+            <div class="contact-grid">
+                <div class="contact-info-panel">
+                    <h4>Senir Green Farm Genel Merkezi</h4>
+                    <p style="margin-bottom: 30px; color: #ECEFF1;">Biyokimya laboratuvarımız, AR-GE polikarbon akıllı seralarımız ve otomasyon yönetim merkezimizle tarımı yeniden tanımlıyoruz.</p>
+                    
+                    <div class="contact-method">
+                        <h5>📍 Adres Bilgisi</h5>
+                        <p>Senir Green Farm AR-GE Tesisi, Teknoloji Geliştirme Bölgesi, Türkiye</p>
+                    </div>
+                    <div class="contact-method">
+                        <h5>✉️ E-Posta İletişim</h5>
+                        <p>info@senirgreenfarm.com<br>invest@senirgreenfarm.com</p>
+                    </div>
+                    <div class="contact-method">
+                        <h5>🌐 Yönetim ve İnovasyon</h5>
+                        <p>Kurucu: Biyokimya Uzmanı Olga Ergül</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-panel">
+                    <form action="#" method="POST" onsubmit="alert('Başvurunuz başarıyla alındı! Senir Green Farm ekibi en kısa sürede sizinle iletişime geçecektir.'); return false;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullname">Adınız Soyadınız / Kurum Adı *</label>
+                                <input type="text" id="fullname" placeholder="Örn: Ahmet Yılmaz" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Posta Adresiniz *</label>
+                                <input type="email" id="email" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Telefon Numaranız</label>
+                                <input type="tel" id="phone" placeholder="+90 (555) 000 00 00">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Başvuru Amacı *</label>
+                                <select id="subject" required>
+                                    <option value="">Lütfen seçiniz...</option>
+                                    <option value="yatirim">Yatırımcı İlişkileri & Pitch Deck Talebi</option>
+                                    <option value="ticari">Toplu Ürün Alımı & Ticari İş Birliği</option>
+                                    <option value="arge">AR-GE Projeleri & Biyokimyasal Ortaklık</option>
+                                    <option value="diger">Genel Sorular / Diğer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mesajınız / Başvuru Detayınız *</label>
+                            <textarea id="message" rows="5" placeholder="Senir Green Farm ekibine iletmek istediğiniz detaylı mesajınızı buraya yazınız..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Başvuruyu ve Mesajı Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span>Senir Green Farm</span>. Tüm Hakları Saklıdır.</p>
+            <p style="font-size: 12px; color: #7F8C8D; margin-top: 5px;">Biyokimya Uzmanı Olga Ergül Girişimidir. Precision & Tech Greenhouse Agriculture.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
